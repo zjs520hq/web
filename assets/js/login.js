@@ -28,11 +28,9 @@ $(function () {
     })
 
     // axios.default.baseURL = 'http://ajax.frontend.itheima.net'
-    //监听注册表单的注册请求
+    // 监听注册表单的注册请求
     // $('#form_reg').on('submit', function (e) {
     //     e.preventDefault(); //阻止表单默认提交行为
-    //     let usrName = $('#username').val()
-    //     let pwd = $('#pwd').val()
     //     var data = {
     //         username: $('#form_reg [name=username]').val(),
     //         password: $('#form_reg [name=password]').val()
@@ -47,32 +45,32 @@ $(function () {
     //     })
     // })
 
-    let layer = layui.layer
-    $('#form_reg').on('submit', function (e) {
-        // 1. 阻止默认的提交行为
-        e.preventDefault()
-        // 2. 发起Ajax的POST请求
-        var data = {
-            username: $('#form_reg [name=username]').val(),
-            password: $('#form_reg [name=password]').val()
-        }
-        console.log("请求2",data);
+    // let layer = layui.layer
+    // $('#form_reg').on('submit', function (e) {
+    //     // 1. 阻止默认的提交行为
+    //     e.preventDefault()
+    //     // 2. 发起Ajax的POST请求
+    //     var data = {
+    //         username: $('#form_reg [name=username]').val(),
+    //         password: $('#form_reg [name=password]').val()
+    //     }
+    //     console.log("请求2",data);
 
-        $.post('http://ajax.frontend.itheima.net/api/reguser', data, function (res) {
-            if (res.status !== 0) {
-                return layer.msg(res.message)
-            }
-            layer.msg('注册成功，请登录！')
-            //模拟点击事件,跳转到登录页面
-            $('#link_login').click()
-        })
-    })
+    //     $.post('http://ajax.frontend.itheima.net/api/reguser', data, function (res) {
+    //         if (res.status !== 0) {
+    //             return layer.msg(res.message)
+    //         }
+    //         layer.msg('注册成功，请登录！')
+    //         //模拟点击事件,跳转到登录页面
+    //         $('#link_login').click()
+    //     })
+    // })
 
     $('#form_login').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             method: "POST",
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data: $(this).serialize(),
             success: function (res) {
                 if (res.status !== 0) {
