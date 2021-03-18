@@ -17,19 +17,20 @@ function getInfo() {
             }
             //渲染头像和名字
             renderInfo(res.data)
+            console.log(res.data);
         }
     });
 }
 
 function renderInfo(usr) {
     //获取用户名称
-    var name = usr.nikname || usr.username
+    var name = usr.nickname || usr.username
     //渲染用户名称
     $('#welcome').html('欢迎' + '' + name)
     //渲染用户头像
     if (usr.user_pic !== null) {
         $('.layui-nav-img').attr('src', usr.user_pic).show();
-        $('#txt-avatar').hide()
+        $('.txt-avatar').hide()
     } else {
         var firstName = name[0].toUpperCase();
         $('.layui-nav-img').hide();
