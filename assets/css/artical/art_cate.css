@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+.add {
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
