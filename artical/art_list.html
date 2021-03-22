@@ -11,33 +11,31 @@
 </head>
 
 <body>
-
     <div class="layui-card">
         <div class="layui-card-header">文章列表</div>
         <div class="layui-card-body">
-            <form class="layui-form">
+            <form class="layui-form" id="filter">
                 <div class="layui-form-item layui-inline">
                     <label class="layui-form-label">选择框</label>
                     <div class="layui-input-block">
-                      <select name="cate_id">
-                      </select>
+                        <select name="cate_id">
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item layui-inline">
                     <label class="layui-form-label">选择框</label>
                     <div class="layui-input-block">
-                      <select name="state">
-                        <option value="">所有状态</option>
-                        <option value="已发布">已发布</option>
-                        <option value="草稿">草稿</option>
-                      </select>
+                        <select name="state">
+                            <option value="">所有状态</option>
+                            <option value="已发布">已发布</option>
+                            <option value="草稿">草稿</option>
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item layui-inline">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                    <button class="layui-btn filter" lay-submit lay-filter="formDemo">筛选</button>
                 </div>
             </form>
-            
 
             <table class="layui-table">
                 <colgroup>
@@ -57,7 +55,7 @@
                 <tbody>
                 </tbody>
             </table>
-
+            <div id="page"></div>
         </div>
     </div>
 
@@ -81,12 +79,14 @@
     <script type="text/html" id="tpl-cate">
         <option value="">所有分类</option>
         {{each data}}
-        <option value="{{$value.Id}}">{{$value.name}}</option>
+            <option value="{{$value.Id}}">{{$value.name}}</option>
         {{/each}}
       </script>
 
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/tinymce/tinymce.min.js"></script>
+    <script src="/assets/lib/tinymce/tinymce_setup.js"></script>
     <script src="/assets/js/baseAPI.js"></script>
     <script src="/assets/lib/template-web.js"></script>
     <script src="/assets/js/artical/art_list.js"></script>
